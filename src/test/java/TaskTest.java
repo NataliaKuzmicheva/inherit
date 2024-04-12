@@ -26,7 +26,7 @@ public class TaskTest {
     }
 
     @Test
-    public void shouldFindMatchesInMeeting() {
+    public void shouldFindMatchesInMeetingTopic() {
         Meeting meeting = new Meeting(
                 555,
                 "Выкатка 3й версии приложения",
@@ -36,6 +36,20 @@ public class TaskTest {
 
         boolean expected = true;
         boolean actual = meeting.matches("Выкатка 3й версии приложения");
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldFindMatchesInMeetingProject() {
+        Meeting meeting = new Meeting(
+                555,
+                "Выкатка 3й версии приложения",
+                "Приложение НетоБанка",
+                "Во вторник после обеда"
+        );
+
+        boolean expected = true;
+        boolean actual = meeting.matches("Приложение НетоБанка");
 
         Assertions.assertEquals(expected, actual);
     }
